@@ -67,7 +67,8 @@
       [:div.column.is-one-third
        [profile-side-component]]
       [:div.column
-       [project-component]]]]]])
+       [project-component]
+       [:a.button.is-primary.is-fullwidth.is-large "+ Project"]]]]]])
 
 (defn start []
   (reagent/render-component [main-component]
