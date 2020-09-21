@@ -15,14 +15,14 @@
    [:div.card-image.has-text-centered
     [:div.columns.is-inline-flex
      [:div.column
-      [:a.image.is-48x48 {:href "linkedin" :target "_blank"}
-       [:img {:src "http://www.prepare1.com/wp-content/uploads/2014/04/linkedin-logo-high-res-1254-1024x1024.jpg"}]]]
+      [:a {:href "linkedin" :target "_blank"}
+       [:i.fab.fa-linkedin.fa-2x]]]
      [:div.column
-      [:a.image.is-48x48 {:href "github" :target "_blank"}
-       [:img {:src "https://cdn.afterdawn.fi/v3/news/original/github-logo.png"}]]]
+      [:a {:href "github" :target "_blank"}
+       [:i.fab.fa-github.fa-2x]]]
      [:div.column
-      [:a.image.is-48x48 {:href "email" :target "_blank"}
-       [:img {:src "http://cdn.onlinewebfonts.com/svg/img_386071.png"}]]]]]
+      [:a {:href "email" :target "_blank"}
+       [:i.fa.fa-envelope.fa-2x]]]]]
    [:hr.has-background-grey-lighter]
    [:p.subtitle.is-4 "Experience:"]
    [:div
@@ -56,8 +56,8 @@
           [:button.button.is-link.is-danger "Delete"]]]]]
       [:div.column.is-one-fifth
        [:figure.image.has-text-right
-        [:a.image.is-48x48 {:href "source" :target "_blank"}
-         [:img {:src "https://cdn.afterdawn.fi/v3/news/original/github-logo.png"}]]]]]]]])
+        [:a {:href "source" :target "_blank"}
+         [:i.fab.fa-github.fa-2x]]]]]]]])
 
 (defn main-component []
   [:div.pagesize
