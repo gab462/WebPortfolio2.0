@@ -47,7 +47,7 @@
      [:div.columns.is-flex
       [:div.column
        [:br]
-       [:p.has-text-right [:i "Data do Projeto: 2020"]] [:br]
+       [:p.has-text-right [:i "Project date: 2020"]] [:br]
        [:div.has-text-right
         [:div.field.is-grouped
          [:div.control
