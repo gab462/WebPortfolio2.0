@@ -6,13 +6,8 @@
 
 (defonce app-state (atom {:text "Hello world!"}))
 
-(defn hello-world []
-  [:div.pagesize
-   [:section.section
-    [:div.container
-     [:div.columns
-      [:div.column.is-one-third
-       [:div.notification
+(defn profile-side-component []
+  [:div.notification
         [:div.card-image.has-text-centered
          [:figure.image.is-128x128.is-inline-block
           [:img.is-rounded {:src "https://www.jodilogik.com/wordpress/wp-content/uploads/2016/05/people-1.png"}]]]
@@ -38,9 +33,10 @@
         [:p.is-marginless.subtitle.is-5 [:strong "Database:"]]
         [:span [:p [:i.fas.fa-database] "\tMongoDB"]] [:br]
         [:p.is-marginless.subtitle.is-5 [:strong "Other:"]]
-        [:span [:p [:i.fas.fa-plus-square] "\tPython"]]]]]
-      [:div.column
-       [:div.notification
+        [:span [:p [:i.fas.fa-plus-square] "\tPython"]]]])
+
+(defn project-component []
+  [:div.notification
         [:div.columns
          [:div.column.is-one-third
           [:figure.image {:style {:max-width "600px"}}
@@ -61,11 +57,20 @@
            [:div.column.is-one-fifth
             [:figure.image.has-text-right
              [:a.image.is-48x48 {:href "source" :target "_blank"}
-              [:img {:src "https://cdn.afterdawn.fi/v3/news/original/github-logo.png"}]]]]]]]]
-       [:a.button.is-primary.is-fullwidth.is-large "+ Project"]]]]]])
+              [:img {:src "https://cdn.afterdawn.fi/v3/news/original/github-logo.png"}]]]]]]]])
+
+(defn main-component []
+  [:div.pagesize
+   [:section.section
+    [:div.container
+     [:div.columns
+      [:div.column.is-one-third
+        [profile-side-component]]
+      [:div.column
+        [project-component]]]]]])
 
 (defn start []
-  (reagent/render-component [hello-world]
+  (reagent/render-component [main-component]
                             (. js/document (getElementById "app"))))
 
 (defn ^:export init []
