@@ -46,7 +46,6 @@
      [:p.has-text-justified "Project made in ClojureScript in conjuction with Reagent (ClojureScript React bindings)."][:br]
      [:div.columns.is-flex
       [:div.column
-       [:br]
        [:p.has-text-right [:i "Project date: 2020"]] [:br]
        [:div.has-text-right
         [:div.field.is-grouped
@@ -55,9 +54,9 @@
          [:div.control
           [:button.button.is-link.is-danger "Delete"]]]]]
       [:div.column.is-one-fifth
-       [:figure.image.has-text-right
+       [:figure.image.has-text-center
         [:a {:href "source" :target "_blank"}
-         [:i.fab.fa-github.fa-2x]]]]]]]])
+         [:i.fab.fa-github.fa-lg]]]]]]]])
 
 (defn main-component []
   [:div.pagesize
