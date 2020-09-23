@@ -6,6 +6,28 @@
 
 (defonce app-state (atom {:text "Hello world!"}))
 
+(defn navbar-component []
+  [:section.hero.has-background-light {:style {:max-height "100px;"}}
+   [:div.barsize
+    [:nav.navbar {:role "navigation" :aria-label "main navigation"}
+     [:div.navbar-brand
+      [:a.navbar-item
+       [:i.fas.fa-folder-open.fa-2x]]
+      [:a.navbar-burger.burger {:role "button" :aria-label "menu" :aria-expanded "false" :data-target="navbarSample"} ;; Javascript needed?
+       [:span {:aria-hidden "true"}]
+       [:span {:aria-hidden "true"}]
+       [:span {:aria-hidden "true"}]]]
+     [:div#navbarSample.navbar-menu
+      [:div.navbar-start
+       [:a.navbar-item "Home"]
+       [:a.navbar-item "Profile"]
+       [:a.navbar-item "About"]]
+      [:div.navbar-end
+       [:div.navbar-item
+        [:div.buttons
+         [:a.button.is-primary "Register"]
+         [:a.button.is-light "Log In"]]]]]]]])
+
 (defn profile-side-component []
   [:div.notification
    [:div.card-image.has-text-centered
@@ -62,6 +84,7 @@
   [:div.pagesize
    [:section.section
     [:div.container
+     [navbar-component] [:br]
      [:div.columns
       [:div.column.is-one-third
        [profile-side-component]]
