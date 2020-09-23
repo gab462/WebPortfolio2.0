@@ -7,7 +7,7 @@
 (defonce app-state (atom {:text "Hello world!"}))
 
 (defn navbar-component []
-  [:section.hero.has-background-light {:style {:max-height "100px;"}}
+  [:section.hero.has-background-light {:style {:max-height "100px"}}
    [:div.barsize
     [:nav.navbar {:role "navigation" :aria-label "main navigation"}
      [:div.navbar-brand
@@ -46,6 +46,7 @@
       [:a {:href "email" :target "_blank"}
        [:i.fa.fa-envelope.fa-2x]]]]]
    [:hr.has-background-grey-lighter]
+   [:p.subtitle.is-5 "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc convallis dui non sagittis tincidunt. Praesent consectetur, massa id malesuada finibus, nulla neque maximus arcu, at sagittis leo libero id dui. Nunc a quam sagittis, mattis est vitae, facilisis mauris."]
    [:p.subtitle.is-4 "Experience:"]
    [:div
     [:p.is-marginless.subtitle.is-5 [:strong "Client-Side:"]]
@@ -80,6 +81,12 @@
         [:a {:href "source" :target "_blank"}
          [:i.fab.fa-github.fa-lg]]]]]]]])
 
+(defn footer-component []
+  [:footer.footer
+    [:div.columns
+     [:div.column.has-text-left "By " [:strong "Gustavo Araujo Borges"] " @2020"]
+     [:div.column.has-text-right [:i.fab.fa-github.fa-2x]]]])
+
 (defn main-component []
   [:div.pagesize
    [:section.section
@@ -90,7 +97,8 @@
        [profile-side-component]]
       [:div.column
        [project-component]
-       [:a.button.is-primary.is-fullwidth.is-large "+ Project"]]]]]])
+       [:a.button.is-primary.is-fullwidth.is-large "+ Project"]]]
+     [footer-component]]]])
 
 (defn start []
   (reagent/render-component [main-component]
