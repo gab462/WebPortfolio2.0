@@ -23,6 +23,7 @@
        [:a.navbar-item "Profile"]
        [:a.navbar-item "About"]]
       [:div.navbar-end
+       [:div.navbar-item]
        [:div.navbar-item.has-dropdown.is-hoverable
         [:a.navbar-link "Register"]
         [:div.navbar-dropdown
@@ -31,7 +32,7 @@
          [:div.navbar-item.field
           [:input.input {:type "text" :placeholder "Username"}]]
          [:div.navbar-item.field
-          [:input.input {:type "text" :placeholder "Email"}]]
+          [:input.input {:type "email" :placeholder "Email"}]]
          [:div.navbar-item.field
           [:input.input {:type "password" :placeholder "Password"}]]
          [:div.navbar-item.field
@@ -44,7 +45,7 @@
          [:div.navbar-item
           [:p.subtitle.is-5 "Log into existing account"]]
          [:div.navbar-item.field
-          [:input.input {:type "text" :placeholder "Email"}]]
+          [:input.input {:type "email" :placeholder "Email"}]]
          [:div.navbar-item.field
           [:input.input {:type "password" :placeholder "Password"}]]
          [:div.navbar-item
