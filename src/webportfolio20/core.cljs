@@ -1,59 +1,70 @@
 (ns webportfolio20.core
-  (:require [reagent.core :as reagent :refer [atom]]
-            [ajax.core :as ajax]))
+  (:require [reagent.core :as reagent]))
 
 ;; define your app data so that it doesn't get over-written on reload
 
 (defonce app-state (atom {:text "Hello world!"}))
 
+(defn toggle-class [a k class1 class2]
+  (if (= (@a k) class1)
+  (swap! a assoc k class2)
+  (swap! a assoc k class1)))
+
 (defn navbar-component []
-  [:section.hero.has-background-light {:style {:max-height "100px"}}
-   [:div.barsize
-    [:nav.navbar {:role "navigation" :aria-label "main navigation"}
-     [:div.navbar-brand
-      [:a.navbar-item
-       [:i.fas.fa-folder-open.fa-2x]]
-      [:a.navbar-burger.burger {:role "button" :aria-label "menu" :aria-expanded "false" :data-target="navbarSample"} ;; Javascript needed?
-       [:span {:aria-hidden "true"}]
-       [:span {:aria-hidden "true"}]
-       [:span {:aria-hidden "true"}]]]
-     [:div#navbarSample.navbar-menu
-      [:div.navbar-start
-       [:a.navbar-item "Home"]
-       [:a.navbar-item "Profile"]
-       [:a.navbar-item "About"]]
-      [:div.navbar-end
-       [:div.navbar-item
-        [:p.control.has-icons-right
-         [:input.input.is-rounded {:type "text" :placeholder "Search"}]
-         [:span.icon.is-small.is-right
-          [:i.fas.fa-search]]]]
-       [:div.navbar-item.has-dropdown.is-hoverable
-        [:a.navbar-link "Register"]
-        [:div.navbar-dropdown
-         [:div.navbar-item
-          [:p.subtitle.is-5 "Create a new account"]]
-         [:div.navbar-item.field
-          [:input.input {:type "text" :placeholder "Username"}]]
-         [:div.navbar-item.field
-          [:input.input {:type "email" :placeholder "Email"}]]
-         [:div.navbar-item.field
-          [:input.input {:type "password" :placeholder "Password"}]]
-         [:div.navbar-item.field
-          [:input.input {:type "password" :placeholder "Confirm Password"}]]
-         [:div.navbar-item
-          [:button.button.navbar-item.is-fullwidth.is-link "Register"]]]]
-       [:div.navbar-item.has-dropdown.is-hoverable
-        [:a.navbar-link "Log In"]
-        [:div.navbar-dropdown
-         [:div.navbar-item
-          [:p.subtitle.is-5 "Log into existing account"]]
-         [:div.navbar-item.field
-          [:input.input {:type "email" :placeholder "Email"}]]
-         [:div.navbar-item.field
-          [:input.input {:type "password" :placeholder "Password"}]]
-         [:div.navbar-item
-          [:button.button.navbar-item.is-fullwidth.is-success "Log in"]]]]]]]]])
+  (let [burger-state (reagent/atom {:btn-class ""})]
+    (fn []
+      [:section.hero.has-background-light {:style {:max-height "100px"}}
+       [:div.barsize
+        [:nav.navbar {:role "navigation" :aria-label "main navigation"}
+         [:div.navbar-brand
+          [:a.navbar-item
+           [:i.fas.fa-folder-open.fa-2x]]
+          [:a {:class (str "navbar-burger " (@burger-state :btn-class))
+               :on-click #(toggle-class burger-state :btn-class "" "is-active")
+               :role "button"
+               :aria-label "menu"
+               :aria-expanded "false"
+               :data-target="navbarSample"}
+           [:span {:aria-hidden "true"}]
+           [:span {:aria-hidden "true"}]
+           [:span {:aria-hidden "true"}]]]
+         [:div#navbarSample {:class (str "navbar-menu " (@burger-state :btn-class))}
+          [:div.navbar-start
+           [:a.navbar-item "Home"]
+           [:a.navbar-item "Profile"]
+           [:a.navbar-item "About"]]
+          [:div.navbar-end
+           [:div.navbar-item
+            [:p.control.has-icons-right
+             [:input.input.is-rounded {:type "text" :placeholder "Search"}]
+             [:span.icon.is-small.is-right
+              [:i.fas.fa-search]]]]
+           [:div.navbar-item.has-dropdown.is-hoverable
+            [:a.navbar-link "Register"]
+            [:div.navbar-dropdown
+             [:div.navbar-item
+              [:p.subtitle.is-5 "Create a new account"]]
+             [:div.navbar-item.field
+              [:input.input {:type "text" :placeholder "Username"}]]
+             [:div.navbar-item.field
+              [:input.input {:type "email" :placeholder "Email"}]]
+             [:div.navbar-item.field
+              [:input.input {:type "password" :placeholder "Password"}]]
+             [:div.navbar-item.field
+              [:input.input {:type "password" :placeholder "Confirm Password"}]]
+             [:div.navbar-item
+              [:button.button.navbar-item.is-fullwidth.is-link "Register"]]]]
+           [:div.navbar-item.has-dropdown.is-hoverable
+            [:a.navbar-link "Log In"]
+            [:div.navbar-dropdown
+             [:div.navbar-item
+              [:p.subtitle.is-5 "Log into existing account"]]
+             [:div.navbar-item.field
+              [:input.input {:type "email" :placeholder "Email"}]]
+             [:div.navbar-item.field
+              [:input.input {:type "password" :placeholder "Password"}]]
+             [:div.navbar-item
+              [:button.button.navbar-item.is-fullwidth.is-success "Log in"]]]]]]]]])))
 
 (defn profile-side-component []
   [:div.notification
