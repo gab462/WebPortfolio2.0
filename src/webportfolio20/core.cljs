@@ -2,20 +2,14 @@
   (:require [reagent.core :as reagent]
             [webportfolio20.components.navbar :refer [navbar-component]]
             [webportfolio20.components.footer :refer [footer-component]]
-            [webportfolio20.components.profileside :refer [profile-side-component]]
-            [webportfolio20.components.project :refer [project-component]]))
+            [webportfolio20.components.profile :refer [profile-component]]))
 
 (defn main-component []
   [:div.pagesize
    [:section.section
     [:div.container
      [navbar-component] [:br]
-     [:div.columns
-      [:div.column.is-one-third
-       [profile-side-component]]
-      [:div.column
-       [project-component]
-       [:a.button.is-primary.is-fullwidth.is-large "+ Project"]]]
+     [profile-component]
      [footer-component]]]])
 
 (defn start []
