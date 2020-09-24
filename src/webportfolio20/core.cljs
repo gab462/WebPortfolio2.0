@@ -23,10 +23,32 @@
        [:a.navbar-item "Profile"]
        [:a.navbar-item "About"]]
       [:div.navbar-end
-       [:div.navbar-item
-        [:div.buttons
-         [:a.button.is-primary "Register"]
-         [:a.button.is-light "Log In"]]]]]]]])
+       [:div.navbar-item.has-dropdown.is-hoverable
+        [:a.navbar-link "Register"]
+        [:div.navbar-dropdown
+         [:div.navbar-item
+          [:p.subtitle.is-5 "Create a new account"]]
+         [:div.navbar-item.field
+          [:input.input {:type "text" :placeholder "Username"}]]
+         [:div.navbar-item.field
+          [:input.input {:type "text" :placeholder "Email"}]]
+         [:div.navbar-item.field
+          [:input.input {:type "password" :placeholder "Password"}]]
+         [:div.navbar-item.field
+          [:input.input {:type "password" :placeholder "Confirm Password"}]]
+         [:div.navbar-item
+          [:button.button.navbar-item.is-fullwidth.is-link "Register"]]]]
+       [:div.navbar-item.has-dropdown.is-hoverable
+        [:a.navbar-link "Log In"]
+        [:div.navbar-dropdown
+         [:div.navbar-item
+          [:p.subtitle.is-5 "Log into existing account"]]
+         [:div.navbar-item.field
+          [:input.input {:type "text" :placeholder "Email"}]]
+         [:div.navbar-item.field
+          [:input.input {:type "password" :placeholder "Password"}]]
+         [:div.navbar-item
+          [:button.button.navbar-item.is-fullwidth.is-success "Log in"]]]]]]]]])
 
 (defn profile-side-component []
   [:div.notification
