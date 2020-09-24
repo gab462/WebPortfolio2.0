@@ -23,7 +23,11 @@
        [:a.navbar-item "Profile"]
        [:a.navbar-item "About"]]
       [:div.navbar-end
-       [:div.navbar-item]
+       [:div.navbar-item
+        [:p.control.has-icons-right
+         [:input.input.is-rounded {:type "text" :placeholder "Search"}]
+         [:span.icon.is-small.is-right
+          [:i.fas.fa-search]]]]
        [:div.navbar-item.has-dropdown.is-hoverable
         [:a.navbar-link "Register"]
         [:div.navbar-dropdown
